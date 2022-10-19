@@ -1,0 +1,27 @@
+Source: ruby-sync
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Balasankar C <balasankarc@debian.org>
+Build-Depends: debhelper-compat (= 12),
+               gem2deb (>= 1),
+               rake
+Standards-Version: 4.5.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-sync.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-sync
+Homepage: https://github.com/ruby/sync
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-sync
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: two-phase lock with a counter
+ This package provides they sync gem, which is essentially a module that
+ provides a two-phase lock with a counter.
+ .
+ This was part of Ruby core, but was split out in Ruby 2.7

@@ -1,0 +1,18 @@
+ruby-sync (0.5.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * d/copyright: Add Upstream-Contact field.
+  * d/upstream/metadata: Remove obsolete Name and Upstream fields.
+
+ -- Daniel Leidert <dleidert@debian.org>  Sat, 28 Mar 2020 20:22:02 +0100
+
+ruby-sync (0.5.0-1) unstable; urgency=medium
+
+  * Initial release (Closes: #950849)
+  * Patch: fix-ruby-2.5.patch
+    - Disable usage of RubyVM::MJIT in tests
+    - RubyVM::MJIT was added only in Ruby 2.6
+    - Test will fail on Ruby 2.5 if it is used
+    - Should be removed when we stop building against 2.5 by default
+
+ -- Balasankar C <balasankarc@debian.org>  Fri, 07 Feb 2020 16:52:41 +0530

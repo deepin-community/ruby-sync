@@ -1,0 +1,19 @@
+Description: Disable usage of RubyVM::MJIT in tests
+ RubyVM::MJIT is here only from Ruby 2.6. So we can't use it for Ruby 2.5.
+ This patch needs to be removed once we stop building against Ruby 2.5
+Author: Balasankar C <balasankarc@debian.org>
+Last-Update: 2020-02-07
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/test/test_sync.rb
++++ b/test/test_sync.rb
+@@ -59,7 +59,8 @@
+     }
+ 
+     sleep 0.1 until t.stop?
+-    sleep 1 if RubyVM::MJIT.enabled? # t.stop? behaves unexpectedly with --jit-wait
++    # Disabled for Ruby 2.5. Should be enabled back on Ruby 2.7
++    # sleep 1 if RubyVM::MJIT.enabled? # t.stop? behaves unexpectedly with --jit-wait
+     t.raise
+     t.join
+ 
